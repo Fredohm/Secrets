@@ -95,7 +95,7 @@ app.get("/auth/google/secrets",
 });
 
 app.get("/auth/facebook",
-  passport.authenticate("facebook", {scope: public})
+  passport.authenticate("facebook")
 );
 
 app.get("/auth/facebook/secrets",
