@@ -57,7 +57,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_GOOGLE_ID,
     clientSecret: process.env.CLIENT_GOOGLE_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
+    callbackURL: process.env.HEROKU_APP_URL + "/auth/google/secrets",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -70,7 +70,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/secrets",
+    callbackURL: process.env.HEROKU_APP_URL + "/auth/facebook/secrets",
     enableProof: true
   },
   function(accessToken, refreshToken, profile, cb) {
