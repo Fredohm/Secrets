@@ -95,8 +95,8 @@ app.get("/auth/google/secrets",
 });
 
 app.get("/auth/facebook",
-  passport.authenticate("facebook")
-);
+  passport.authenticate("facebook", {scope: ["public_profile"]
+}));
 
 app.get("/auth/facebook/secrets",
   passport.authenticate("facebook", { failureRedirect: "/login" }),
